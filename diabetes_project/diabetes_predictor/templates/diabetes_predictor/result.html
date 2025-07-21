@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="{% static 'diabetes_predictor/css/result.css' %}" />
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <div class="result-container">
+    <div class="result-box">
+      <div class="result-left"></div>
+      <div class="result-right">
+        <h2>Prediction Result</h2>
+        <div class="result-message" id="result-message"></div>
+        <a href="{% url 'home' %}" class="btn">Check Another</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const result = params.get('result');
+    const messageDiv = document.getElementById('result-message');
+
+    if (result === 'positive') {
+      messageDiv.innerHTML = `
+        <p class="result-status">⚠️ You may be at risk of <span class="highlight">diabetes</span>.</p>
+        <p class="recommendation">Please consult a healthcare professional for confirmation and treatment.</p>
+      `;
+    } else if (result === 'negative') {
+      messageDiv.innerHTML = `
+        <p class="result-status">🎉 You appear to be <span class="highlight">healthy</span>!</p>
+        <p class="recommendation">Maintain a balanced lifestyle to keep your health in check.</p>
+      `;
+    } else {
+      messageDiv.innerHTML = `
+        <p class="result-status">⚠️ Invalid result provided.</p>
+        <p class="recommendation">Please return to the detection page and try again.</p>
+      `;
+    }
+  </script>
+</body>
+</html>

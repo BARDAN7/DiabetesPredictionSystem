@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #8cb897;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.result-container {
+  width: 850px;
+  max-width: 95%;
+  background-color: #ace6b6;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.result-box {
+  display: flex;
+  flex-direction: column; /* STACK image on top */
+}
+
+.result-left {
+  width: 100%;
+  height: 300px;
+  background: url('/static/diabetes_predictor/img/bg1.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.result-right {
+  padding: 40px;
+  background-color: #ffffff;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #2E8B57;
+  font-size: 24px;
+  border-bottom: 2px solid #A2D5AB;
+  padding-bottom: 10px;
+}
+
+.result-message {
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.result-status {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.recommendation {
+  margin-top: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #2E8B57;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #276749;
+}
+
+@media (max-width: 768px) {
+  .result-left {
+    height: 200px;
+  }
+
+  .result-right {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Detection</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <div class="contact-box">
+            <div class="left"></div>
+            <div class="right">
+                <h2>Diabetes Detection</h2>
+                <form action="result.html" method="GET">
+                    <input type="number" name="Age" class="field" placeholder="Age" required>
+                    <input type="number" name="Glucose" class="field" placeholder="Glucose" required>
+                    <input type="number" name="BloodPressure" class="field" placeholder="Blood Pressure" required>
+                    <input type="number" name="Insulin" class="field" placeholder="Insulin" required>
+                    <input type="number" step="0.1" name="BMI" class="field" placeholder="Body Mass Index" required>
+                    <input type="number" name="SkinThickness" class="field" placeholder="Skin Thickness" required>
+                    <input type="number" step="0.00000001" name="DiabetesPedigreeFunction" class="field" placeholder="Diabetes Pedigree Function" required>
+                    <input type="hidden" name="result" value="positive"> <!-- simulate result -->
+                    <button class="btn" type="submit"><b>Predict Diabetes</b></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
