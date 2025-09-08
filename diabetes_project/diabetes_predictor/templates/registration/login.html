@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'diabetes_predictor/css/login.css' %}">
+  <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Welcome Back</h2>
+      <div class="avatar">
+        <img src="{% static 'diabetes_predictor/img/user-icon.png' %}" alt="User">
+      </div>
+
+      <form method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+        <div class="error-message">
+          ⚠️ Invalid username or password. Please try again.
+        </div>
+        {% endif %}
+        
+        <div class="input-group">
+          <span class="icon">📧</span>
+          <input type="text" name="username" placeholder="Type your email address or username" required>
+        </div>
+        <div class="input-group">
+          <span class="icon">🔒</span>
+          <input type="password" name="password" placeholder="Type your password" required>
+        </div>
+
+        <div class="options">
+          <label><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-login">LOGIN</button>
+
+        <p class="or-text">Or login with</p>
+
+        <div class="social-login">
+          <a href="#" class="facebook">
+            <img src="{% static 'diabetes_predictor/img/facebook.png' %}" alt="Facebook"> Facebook
+          </a>
+          <a href="#" class="google">
+            <img src="{% static 'diabetes_predictor/img/google.png' %}" alt="Google"> Google
+          </a>
+        </div>
+
+        <p>Don’t have an account? <a href="{% url 'signup' %}">Sign up here</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

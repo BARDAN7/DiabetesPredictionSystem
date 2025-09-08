@@ -1,0 +1,193 @@
+/* Background setup */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    background: url("../img/bg1.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glassmorphism Login box */
+.login-box {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.login-box h2 {
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #1e90ff; /* Sky Blue */
+}
+
+.avatar img {
+    width: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: white;
+    padding: 10px;
+}
+
+/* Input fields */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 12px;
+    transition: 0.3s;
+}
+
+.input-group .icon {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #1e90ff;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 15px;
+    background: transparent;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.6);
+}
+
+/* Options */
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: 10px 0 20px;
+}
+
+.options a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+/* Login button with gradient */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #1e90ff, #00bfff);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-login:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #187bcd, #009acd);
+}
+
+/* Divider */
+.or-text {
+    margin: 20px 0 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Social login */
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.social-login a {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.social-login a img {
+    width: 18px;
+    margin-right: 8px;
+}
+
+/* Facebook & Google buttons */
+.facebook {
+    background: #1877f2;
+    color: white;
+}
+
+.google {
+    background: white;
+    color: #444;
+}
+
+.google:hover {
+    background: #eee;
+}
+
+.facebook:hover {
+    background: #0d5bcc;
+}
+
+/* Signup */
+.signup {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.signup a {
+    color: #1e90ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+  background: #ffdddd;
+  color: #d8000c;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #d8000c;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

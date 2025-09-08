@@ -20,7 +20,7 @@ body {
   flex-direction: column;
   height: 100%; /* or a fixed height for demo */
   overflow: auto; /* allow scroll */
-  width:60%;
+  width:65%;
 
 }
 

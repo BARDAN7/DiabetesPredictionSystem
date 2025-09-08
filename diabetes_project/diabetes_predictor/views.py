@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect
 import joblib
 import numpy as np
 import os
+from .models import DiabetesHistory
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from .forms import SignUpForm
 
 # Get BASE_DIR for model path
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -11,7 +16,7 @@ model_path = os.path.join(BASE_DIR, 'diabetes_predictor', 'Diabetes_Predictor.jo
 model = joblib.load(model_path)
 def home(request):
     return render(request, 'diabetes_predictor/index.html')
-
+@login_required(login_url='login')
 def predict(request):
     if request.method == 'POST':
         try:
@@ -43,13 +48,59 @@ def predict(request):
 
             result_param = 'positive' if prediction == 1 else 'negative'
 
-            # Redirect with result
+            # Save to database
+            DiabetesHistory.objects.create(
+                user=request.user,
+                age=age,
+                gender=gender,
+                hypertension=bool(hypertension),
+                heart_disease=bool(heart_disease),
+                smoking_history=smoking_history,
+                bmi=bmi,
+                hba1c_level=hba1c,
+                blood_glucose_level=glucose,
+                result=result_param
+            )
+
             return redirect(f'/result/?result={result_param}')
 
         except Exception as e:
             return render(request, 'diabetes_predictor/index.html', {'error': str(e)})
+
+    return render(request, 'diabetes_predictor/index.html')
+
+
+from django.shortcuts import render
+
+from django.shortcuts import render
+
+def signup(request):
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect("login")
+        else:
+            print(form.errors)  # 🔥 This will print why signup failed
     else:
-        return render(request, 'diabetes_predictor/index.html')
+        form = SignUpForm()
+    return render(request, "registration/signup.html", {"form": form})
+
+
+def index(request):
+    return render(request, 'diabetes_predictor/index.html')
+@login_required(login_url='login')
+def history(request):
+    records = DiabetesHistory.objects.filter(user=request.user).order_by('-created_at')
+    return render(request, 'diabetes_predictor/history.html', {'records': records})
+from django.shortcuts import render
 
 def result(request):
     return render(request, 'diabetes_predictor/result.html')
+
+
+@login_required(login_url='login')
+def delete_record(request, id):
+    record = get_object_or_404(DiabetesHistory, id=id, user=request.user)
+    record.delete()
+    return redirect('history')

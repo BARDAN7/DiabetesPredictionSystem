@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <title>Diabetes Detection</title>
   <link rel="stylesheet" href="{% static 'diabetes_predictor/css/style.css' %}" />
+  <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -13,15 +14,15 @@
     <div class="contact-box login-box">
       <div class="left"></div>
       <div class="right login-form">
-        <div class="right login-form">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-    <h2>Diabetes Prediction System</h2>
-    <a href="{% url 'history' %}" class="btn history-btn">
-      Check History
-    </a>
-  </div>
+        <h2>Diabetes Prediction System</h2>
+        <div style="text-align:center; margin-bottom:20px;">
+          <a href="{% url 'history' %}" class="btn" style="background:#28a745; color:white; padding:10px 20px; border-radius:8px; text-decoration:none;">
+          Check History
+          </a>
+        </div>
 
         <p class="sub-text">Enter your health information</p>
+
         {% if error %}
           <p style="color: red;">{{ error }}</p>
         {% endif %}
@@ -29,6 +30,7 @@
         <form method="POST" action="{% url 'predict' %}">
           {% csrf_token %}
           <!-- Gender Dropdown -->
+           
           <label for="gender">Gender</label>
           <select name="gender" class="field" required>
             <option value="">Select Gender</option>

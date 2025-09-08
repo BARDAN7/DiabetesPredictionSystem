@@ -1,0 +1,111 @@
+/* Background setup */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    background: url("../img/bg1.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glassmorphism Signup box */
+.signup-box {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 380px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.signup-box h2 {
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #28a745; /* Green for signup */
+}
+
+/* Avatar (optional) */
+.avatar img {
+    width: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: white;
+    padding: 10px;
+}
+
+/* Input fields */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 12px;
+    transition: 0.3s;
+}
+
+.input-group .icon {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #28a745;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 15px;
+    background: transparent;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+}
+
+/* Signup button */
+.btn-signup {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #28a745, #34d058);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-signup:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #218838, #28a745);
+}
+
+/* Already have account link */
+.login-link {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #333;
+}
+
+.login-link a {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
