@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: url("../img/bg1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+/* Navigation */
+nav {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+nav h2 {
+  margin: 0;
+  color: #1e90ff;
+  font-weight: 700;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  margin-left: 25px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav ul li a:hover,
+nav ul li a.active {
+  color: #00bfff;
+}
+
+/* Contact Section */
+.contact-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+.contact-container h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.contact-container .subtitle {
+  font-size: 16px;
+  margin-bottom: 40px;
+  color: #f0f8ff;
+}
+
+/* Card container */
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+/* Glassmorphism Contact Card */
+.contact-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 25px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.2s, background 0.3s;
+}
+.contact-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.25);
+}
+.contact-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #00bfff;
+  background: #fff;
+  padding: 5px;
+}
+.contact-card h3 {
+  color:#00bfff;
+  margin-bottom: 10px;
+}
+.contact-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  margin-top: 40px;
+  font-size: 14px;
+  color: #eee;
+}

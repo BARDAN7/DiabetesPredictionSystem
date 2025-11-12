@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Diabetes Prediction</title>
+  <link rel="stylesheet" href="{% static 'diabetes_predictor/css/main.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<script>
+  function confirmLogout() {
+    return confirm("Do you really want to logout?");
+  }
+</script>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <h2>Diabetes Predictor</h2>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'predict' %}">Predict</a></li>
+      <li><a href="{% url 'history' %}">History</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+      <li><a href="{% url 'logout' %}" onclick="return confirmLogout();">
+          Logout
+        </a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to the Diabetes Prediction System</h1>
+    <p>
+      Our application helps you assess your risk of diabetes by analyzing key health indicators.
+      Stay informed, take charge of your health, and monitor your history easily.
+    </p>
+    <a href="{% url 'predict' %}" class="btn-main">Start Prediction</a>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info-section">
+    <div class="card">
+      <h3>What is Diabetes?</h3>
+      <p>Diabetes is a chronic condition that affects how your body turns food into energy. Early detection is key to
+        prevention.</p>
+    </div>
+    <div class="card">
+      <h3>How We Help</h3>
+      <p>We provide an AI-powered prediction tool to estimate diabetes risk, along with a secure history log for
+        monitoring.</p>
+    </div>
+    <div class="card">
+      <h3>Why Choose Us</h3>
+      <p>Simple, reliable, and free to use. Your health data is safe and only accessible by you after login.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Diabetes Prediction System | Built with ❤️ for better health</p>
+  </footer>
+</body>
+
+</html>

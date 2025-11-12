@@ -8,8 +8,11 @@ urlpatterns = [
     path('index/', views.index, name='index'),   # index will be shown after login
     path('predict/', views.predict, name='predict'),
     path('result/', views.result, name='result'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('logout/', views.logout_view, name='logout'),
     path('history/', views.history, name='history'),
     path('delete/<int:id>/', views.delete_record, name='delete_record'),
+    path('home/', views.home, name='home'),
+    path('contact/', views.contact, name='contact'),
+    path('print/', views.print_result, name='print_result'),
 ]
 

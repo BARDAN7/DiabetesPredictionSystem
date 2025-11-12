@@ -120,8 +120,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
+# LOGOUT_REDIRECT_ALLOWED_HOSTS = ['127.0.0.1']
 LOGIN_URL = 'login'
 
 # Default primary key field type

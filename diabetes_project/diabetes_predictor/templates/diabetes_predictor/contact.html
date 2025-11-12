@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - Diabetes Predictor</title>
+  <link rel="stylesheet" href="{% static 'diabetes_predictor/css/contact.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<script>
+  function confirmLogout() {
+    return confirm("Do you really want to logout?");
+  }
+</script>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <h2>Diabetes Predictor</h2>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'predict' %}">Predict</a></li>
+      <li><a href="{% url 'history' %}">History</a></li>
+      <li><a href="{% url 'contact' %}" class="active">Contact</a></li>
+      <li><a href="{% url 'logout' %}" onclick="return confirmLogout();">
+          Logout
+        </a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="contact-container">
+    <h1>Meet Our Team</h1>
+    <p class="subtitle">We are here to help you. Reach out to us anytime.</p>
+
+    <div class="card-container">
+      <!-- Person 1 -->
+      <div class="contact-card">
+        <img src="{% static 'diabetes_predictor/img/aaryan.jpg' %}" alt="Person 1">
+        <h3>Aaryan Khadka</h3>
+        <p><b>Phone:</b> +977-9861054637</p>
+        <p><b>Email:</b> rnkhadka18@gmail..com</p>
+      </div>
+
+      <!-- Person 2 -->
+      <div class="contact-card">
+        <img src="{% static 'diabetes_predictor/img/bardan.jpg' %}" alt="Person 2">
+        <h3>Bardan Kc</h3>
+        <p><b>Phone:</b> +977-9803172007</p>
+        <p><b>Email:</b> kcbardan0@gmail.com</p>
+      </div>
+
+      <!-- Person 3 -->
+      <div class="contact-card">
+        <img src="{% static 'diabetes_predictor/img/swostika.jpg' %}" alt="Person 3">
+        <h3>Swostika Kayastha</h3>
+        <p><b>Phone:</b> +977-9840787247</p>
+        <p><b>Email:</b> kayasthaswostika312@gmail.com</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Diabetes Prediction System | Contact us anytime</p>
+  </footer>
+</body>
+
+</html>

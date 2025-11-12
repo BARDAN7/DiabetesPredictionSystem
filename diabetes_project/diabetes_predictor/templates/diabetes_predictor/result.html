@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Prediction Result</title>
@@ -8,40 +9,40 @@
   <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+
 <body>
   <div class="result-container">
     <div class="result-box">
       <div class="result-left"></div>
       <div class="result-right">
         <h2>Prediction Result</h2>
-        <div class="result-message" id="result-message"></div>
-        <a href="{% url 'index' %}" class="btn">Check Another</a>
-         <a href="{% url 'history' %}" class="btn">View History</a>
+
+        <div class="result-message">
+          {% if result == 'Normal' %}
+          <p class="result-status">🎉 You appear to be <span class="highlight">Healthy</span>!</p>
+          <p class="recommendation">Maintain a balanced diet and regular exercise to stay healthy.</p>
+          {% elif result == 'Pre-Diabetic' %}
+          <p class="result-status">⚠️ You are in the <span class="highlight">Pre-Diabetic</span> range.</p>
+          <p class="recommendation">Consult a healthcare provider and make lifestyle adjustments.</p>
+          {% else %}
+          <p class="result-status">⚠️ You are likely <span class="highlight">Diabetic</span>.</p>
+          <p class="recommendation">It is advised to seek medical attention for further evaluation.</p>
+          {% endif %}
+        </div>
+        <div class="medicine-card">
+          <h3>💊 Prescribed Medicine / Advice</h3>
+          <p>{{ medicine }}</p>
+        </div>
+        <div style="margin-top: 20px;">
+          <a href="{% url 'index' %}" class="btn">Check Another</a>
+          <a href="{% url 'history' %}" class="btn">View History</a>
+          <a href="{% url 'print_result' %}" class="btn">🖨️ Print Result</a>
+        </div>
       </div>
+
     </div>
   </div>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const result = params.get('result');
-    const messageDiv = document.getElementById('result-message');
-
-    if (result === 'positive') {
-      messageDiv.innerHTML = `
-        <p class="result-status">⚠️ You may be at risk of <span class="highlight">diabetes</span>.</p>
-        <p class="recommendation">Please consult a healthcare professional for confirmation and treatment.</p>
-      `;
-    } else if (result === 'negative') {
-      messageDiv.innerHTML = `
-        <p class="result-status">🎉 You appear to be <span class="highlight">healthy</span>!</p>
-        <p class="recommendation">Maintain a balanced lifestyle to keep your health in check.</p>
-      `;
-    } else {
-      messageDiv.innerHTML = `
-        <p class="result-status">⚠️ Invalid result provided.</p>
-        <p class="recommendation">Please return to the detection page and try again.</p>
-      `;
-    }
-  </script>
 </body>
+
 </html>

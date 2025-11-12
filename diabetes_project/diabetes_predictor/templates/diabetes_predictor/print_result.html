@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Report</title>
+    <link rel="stylesheet" href="{% static 'diabetes_predictor/css/print.css' %}">
+</head>
+
+<body>
+    <div class="print-container">
+        <h2>🩺 Diabetes Prediction Report</h2>
+        <div class="user-info">
+            <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Phone:</strong> {{ profile.phone }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+
+        <hr>
+
+        <div class="prediction-info">
+            <h3>Prediction Details</h3>
+            <table>
+                <tr>
+                    <th>Age</th>
+                    <td>{{ record.age }}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{ record.gender }}</td>
+                </tr>
+                <tr>
+                    <th>Hypertension</th>
+                    <td>{{ record.hypertension }}</td>
+                </tr>
+                <tr>
+                    <th>Heart Disease</th>
+                    <td>{{ record.heart_disease }}</td>
+                </tr>
+                <tr>
+                    <th>Smoking History</th>
+                    <td>{{ record.smoking_history }}</td>
+                </tr>
+                <tr>
+                    <th>BMI</th>
+                    <td>{{ record.bmi }}</td>
+                </tr>
+                <tr>
+                    <th>HbA1c Level</th>
+                    <td>{{ record.hba1c_level }}</td>
+                </tr>
+                <tr>
+                    <th>Blood Glucose Level</th>
+                    <td>{{ record.blood_glucose_level }}</td>
+                </tr>
+                <tr>
+                    <th>Result</th>
+                    <td><strong>{{ record.result }}</strong></td>
+                </tr>
+            </table>
+        </div>
+        <div class="medicine-box">
+            <h3>💊 Prescribed Medicine:</h3>
+            <p>{{ record.medicine }}</p>
+        </div>
+
+        <div class="actions">
+            <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+            <a href="{% url 'predict' %}" class="btn-back">⬅ Back</a>
+        </div>
+    </div>
+</body>
+
+</html>

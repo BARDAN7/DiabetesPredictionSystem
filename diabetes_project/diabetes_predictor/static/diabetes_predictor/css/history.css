@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: url("../img/bg1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+/* Navigation */
+nav {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+nav h2 {
+  margin: 0;
+  color: #1e90ff;
+  font-weight: 700;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  margin-left: 25px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav ul li a:hover,
+nav ul li a.active {
+  color: #00bfff;
+}
+.history-box {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    padding: 30px 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.history-box h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #2E8B57;
+    border-bottom: 2px solid #A2D5AB;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    color: #333;
+}
+
+th {
+    background: rgba(46,139,87,0.8);
+    color: #fff;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: rgba(255,255,255,0.1);
+}
+
+.btn-delete {
+    background: #ff4d4d;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: #e60000;
+}
+
+@media (max-width: 768px) {
+    .history-box {
+        padding: 20px;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+
+

@@ -81,6 +81,25 @@ h2 {
   background-color: #276749;
 }
 
+.highlight {
+  color: #d32f2f;
+  font-weight: bold;
+}
+.medicine-box {
+    background-color: #ffeded;       /* light red background for attention */
+    border-left: 6px solid #e74c3c; /* light yellow for alert/info */
+    border: 1px solid #ffeeba; /* subtle border */
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #856404;
+}
+
+.medicine-box strong {
+    color: #d39e00; /* slightly darker for label */
+}
 @media (max-width: 768px) {
   .result-left {
     height: 200px;
@@ -90,3 +109,7 @@ h2 {
     padding: 20px;
   }
 }
+
+
+
+

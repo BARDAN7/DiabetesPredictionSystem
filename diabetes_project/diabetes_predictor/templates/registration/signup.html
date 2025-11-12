@@ -22,17 +22,37 @@
             <form method="POST">
                 {% csrf_token %}
 
-                {% if form.non_field_errors %}
-                <div class="error">
-                    {{ form.non_field_errors }}
-                </div>
-                {% endif %}
-
                 <div class="input-group">
                     <span class="icon">👤</span>
                     {{ form.username }}
                     {% for error in form.username.errors %}
-                    <div class="error">{{ error }}</div>
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="input-group">
+                    <span class="icon">📧</span>
+                    {{ form.email }}
+                    {% for error in form.email.errors %}
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="input-group">
+                    <span class="icon">📝</span>
+                    {{ form.first_name }}
+                </div>
+
+                <div class="input-group">
+                    <span class="icon">📝</span>
+                    {{ form.last_name }}
+                </div>
+
+                <div class="input-group">
+                    <span class="icon">📞</span>
+                    {{ form.phone }}
+                    {% for error in form.phone.errors %}
+                    <div class="error-message">{{ error }}</div>
                     {% endfor %}
                 </div>
 
@@ -41,7 +61,7 @@
                     <span class="icon">🔒</span>
                     {{ form.password1 }}
                     {% for error in form.password1.errors %}
-                    <div class="error">{{ error }}</div>
+                    <div class="error-message">{{ error }}</div>
                     {% endfor %}
                 </div>
 
@@ -49,13 +69,17 @@
                     <span class="icon">🔒</span>
                     {{ form.password2 }}
                     {% for error in form.password2.errors %}
-                    <div class="error">{{ error }}</div>
+                    <div class="error-message">{{ error }}</div>
                     {% endfor %}
                 </div>
 
-                <button type="submit" class="btn-login">SIGN UP</button>
+                <button type="submit" class="btn-signup">SIGN UP</button>
             </form>
 
+
+            <div class="login-link">
+                Already have an account? <a href="{% url 'login' %}">Login</a>
+            </div>
         </div>
     </div>
 </body>

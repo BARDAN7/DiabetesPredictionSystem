@@ -1,66 +1,81 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-<head>
-    <title>History</title>
-    <link rel="stylesheet" href="{% static 'diabetes_predictor/css/style.css' %}">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
-        th {
-            background: #28a745;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2 style="text-align:center; margin-top:20px;">Your Prediction History</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Hypertension</th>
-                    <th>Heart Disease</th>
-                    <th>Smoking History</th>
-                    <th>BMI</th>
-                    <th>HbA1c</th>
-                    <th>Glucose</th>
-                    <th>Result</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for record in records %}
-                <tr>
-                    <td>{{ record.age }}</td>
-                    <td>{{ record.gender }}</td>
-                    <td>{{ record.hypertension }}</td>
-                    <td>{{ record.heart_disease }}</td>
-                    <td>{{ record.smoking_history }}</td>
-                    <td>{{ record.bmi }}</td>
-                    <td>{{ record.hba1c_level }}</td>
-                    <td>{{ record.blood_glucose_level }}</td>
-                    <td>{{ record.result }}</td>
-                    <td>
-                        <a href="{% url 'delete_record' record.id %}" onclick="return confirm('Are you sure you want to delete this record?');">
-                            Delete
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <title>Prediction History</title>
+    <link rel="stylesheet" href="{% static 'diabetes_predictor/css/history.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<script>
+  function confirmLogout() {
+    return confirm("Do you really want to logout?");
+  }
+</script>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'predict' %}">Prediction</a></li>
+            <li><a href="{% url 'history' %}">History</a></li>
+            <li><a href="{% url 'logout' %}" onclick="return confirmLogout();">
+                    Logout
+                </a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="history-box">
+            <h2>Your Prediction History</h2>
+
+            {% if records %}
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Hypertension</th>
+                            <th>Heart Disease</th>
+                            <th>Smoking History</th>
+                            <th>BMI</th>
+                            <th>HbA1c</th>
+                            <th>Glucose</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in records %}
+                        <tr>
+                            <td>{{ record.age }}</td>
+                            <td>{{ record.gender }}</td>
+                            <td>{{ record.hypertension }}</td>
+                            <td>{{ record.heart_disease }}</td>
+                            <td>{{ record.smoking_history }}</td>
+                            <td>{{ record.bmi }}</td>
+                            <td>{{ record.hba1c_level }}</td>
+                            <td>{{ record.blood_glucose_level }}</td>
+                            <td>{{ record.result }}</td>
+                            <td>
+                                <a href="{% url 'delete_record' record.id %}" class="btn-delete"
+                                    onclick="return confirm('Are you sure?');">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p style="text-align:center; margin-top:20px;">No prediction records found.</p>
+            {% endif %}
+        </div>
     </div>
 </body>
+
 </html>

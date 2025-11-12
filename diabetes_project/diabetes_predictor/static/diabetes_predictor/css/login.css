@@ -185,6 +185,24 @@ body {
   font-weight: bold;
 }
 
+.btn-signup {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #28a745, #34d058); /* Green gradient */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-signup:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #218838, #28a745);
+}
 
 /* Fade-in animation */
 @keyframes fadeIn {
