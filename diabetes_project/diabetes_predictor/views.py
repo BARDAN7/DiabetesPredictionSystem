@@ -51,37 +51,30 @@ def predict(request):
             features = np.array([[age, gender_num, hypertension, heart_disease, smoking_num, bmi, hba1c, glucose]])
             prediction = model.predict(features)[0]
 
-            # Determine result
-            result_param = 'positive' if prediction == 1 else 'negative'
-
-            # Medicine recommendation logic
-            if glucose < 100 and hba1c < 5.7:
-                result_text = "Normal"
-                medicine = (
-                    "No medicine required. Maintain a balanced diet, regular exercise, "
-                    "and a healthy lifestyle to prevent diabetes."
-                )
-
-            elif 100 <= glucose < 126 or 5.7 <= hba1c < 6.5:
-                result_text = "Pre-Diabetic"
-                medicine = (
-                    "Metformin 500mg once daily (consult your doctor before starting). "
-                    "Focus on diet control, weight loss, and physical activity to prevent diabetes progression."
-                )
-
-            else:
+            # Map prediction to two results only
+            if prediction == 1:
                 result_text = "Diabetic"
+            else:
+                result_text = "Normal"
+
+            # Medicine recommendation logic for two classes
+            if result_text == "Normal":
+                medicine = (
+                    "No medicine required. Maintain a balanced diet, exercise regularly, "
+                    "and monitor glucose and HbA1c levels periodically."
+                )
+            else:  # Diabetic
                 if glucose >= 250 or hba1c >= 9:
                     medicine = (
-                        "Insulin therapy may be required. Please consult your endocrinologist for proper dosage. "
-                        "Maintain regular blood sugar monitoring and follow a diabetic-friendly meal plan."
+                        "Insulin therapy may be necessary. Please consult your doctor immediately. "
+                        "Monitor blood sugar regularly and follow a diabetic-friendly diet."
                     )
                 else:
                     medicine = (
-                        "Metformin 500mg twice daily after meals. "
-                        "If blood sugar remains uncontrolled, your doctor may prescribe additional medication "
-                        "or start you on insulin therapy. Always follow medical supervision."
+                        "Metformin 500mg twice daily after meals. Maintain a healthy diet and exercise routine. "
+                        "Consult your doctor for personalized dosage and monitoring."
                     )
+
 
             # Save prediction result in database
             DiabetesHistory.objects.create(

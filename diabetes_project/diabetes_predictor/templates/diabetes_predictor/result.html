@@ -21,9 +21,6 @@
           {% if result == 'Normal' %}
           <p class="result-status">🎉 You appear to be <span class="highlight">Healthy</span>!</p>
           <p class="recommendation">Maintain a balanced diet and regular exercise to stay healthy.</p>
-          {% elif result == 'Pre-Diabetic' %}
-          <p class="result-status">⚠️ You are in the <span class="highlight">Pre-Diabetic</span> range.</p>
-          <p class="recommendation">Consult a healthcare provider and make lifestyle adjustments.</p>
           {% else %}
           <p class="result-status">⚠️ You are likely <span class="highlight">Diabetic</span>.</p>
           <p class="recommendation">It is advised to seek medical attention for further evaluation.</p>
